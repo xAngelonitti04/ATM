@@ -1,0 +1,43 @@
+.pulse:hover,
+.pulse:focus {
+  -webkit-animation: pulse 1sss;
+          animation: pulse 1s;
+  box-shadow: 0 0 0 1em rgba(255, 255, 255, 0);
+}
+
+@-webkit-keyframes pulse {
+  0% {
+    box-shadow: 0 0 0 0 var(--hover);
+  }
+}
+
+@keyframes pulse {
+  0% {
+    box-shadow: 0 0 0 0 var(--hover);
+  }
+}
+
+.pulse {
+  --color: #6A4AED;
+  --hover: #59dd85;
+}
+
+button {
+  color:rgb(255, 255, 255);
+  transition: 0.1s;
+}
+button:hover, button:focus {
+  border-color: var(--hover);
+  color: #fff;
+}
+
+
+button {
+  background:#0000;
+  border: 2px solid;
+  font-size:50px;
+  line-height: 1;
+  margin: 0.5em;
+  border-radius: 10px;
+  box-shadow: 5px 3px 6px #000;
+}
