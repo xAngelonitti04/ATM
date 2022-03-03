@@ -61,7 +61,7 @@ body {
 }
 #bottoni input {
   background: transparent;
-  width: 200px;
+  width: 99px;
   padding: 1em;
   margin-bottom: 2em;
   border: none;
@@ -69,13 +69,13 @@ body {
   border-top: 1px solid rgba(255, 255, 255, 0.3);
   border-radius: 5000px;
   -webkit-backdrop-filter: blur(5px);
-          backdrop-filter: blur(5px);
-  box-shadow: 4px 4px 60px rgba(0, 0, 0, 0.2);
+  backdrop-filter: blur(5px);
+  box-shadow: 4px 4px 60px rgb(0 0 0 / 20%);
   color: rgb(238, 44, 44);
   font-family: Montserrat, sans-serif;
   font-weight: 600;
   transition: all 0.2s ease-in-out;
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+  text-shadow: 2px 2px 4px rgb(0 0 0 / 20%);
 }
 #bottoni input:hover {
   background: rgba(255, 255, 255, 0.1);
@@ -173,4 +173,16 @@ textarea:focus,
 button:focus {
   outline: none;
 }
-
+.schermo {
+  position: absolute;
+  top:219px;
+  left: 122px;
+  background: rgba(255, 255, 255, 0.3);
+  height: 511px;
+  width: 868px;
+  border-radius: 20px;
+  border-left: 1px solid rgba(255, 255, 255, 0.3);
+  border-top: 1px solid rgba(255, 255, 255, 0.3);
+  box-shadow: 11px 7px 20px 3px #41464b, inset 0px 0px 20px 0px #41464b48;
+  
+}

@@ -74,9 +74,10 @@ require_once("../admin/head.php");
             </div>
         </div>
     </header>
-    
-    <div class="container" style="position: absolute;top:550px;left: 1900px;">
-        <form action="1h24.php" style="position: absolute;top:-77px;left: 179px;" method="Post" id="form">
+        <div class="schermo">
+    </div>
+    <div class="container" style="position: absolute;top:467px;left: 1732px;">
+        <form action="1h24.php" style="    position: absolute;top: -81px;left: 56px;" method="Post" id="form">
             <input class="display-box" type="number" id="result" disabled>
             <input type="hidden" id="result_hidden" name="value">
         </form>
