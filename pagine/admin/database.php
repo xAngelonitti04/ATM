@@ -10,84 +10,84 @@
                                 if(isset($_POST["cb1"]))
                                 {
                                     $cb1=$_POST["cb1"];
-                                    $sqlcb1="UPDATE `gestiredistributori`.`distributori` SET `FlagAttivo` = '1' WHERE `distributori`.`IdDistributore` = 1";
+                                    $sqlcb1="UPDATE `atm`.`atm` SET `FlagAttivo` = 1 WHERE `atm`.`Id_ATM` = 1";
                                     $resultcb1 = mysqli_query($conn, $sqlcb1);
                                 }
                                 else{
                                     $cb1=null;
                                     if($cb1==null)
                                     {
-                                    $sqlcb1="UPDATE `gestiredistributori`.`distributori` SET `FlagAttivo` = '0' WHERE `distributori`.`IdDistributore` = 1";
+                                    $sqlcb1="UPDATE `atm`.`atm` SET `FlagAttivo` = 0 WHERE `atm`.`Id_ATM` = 1";
                                     $resultcb1 = mysqli_query($conn, $sqlcb1);
                                     }
                                     }
                                     if(isset($_POST["cb2"]))
                                 {
                                     $cb2=$_POST["cb2"];
-                                    $sqlcb2="UPDATE `gestiredistributori`.`distributori` SET `FlagAttivo` = '1' WHERE `distributori`.`IdDistributore` = 2";
+                                    $sqlcb2="UPDATE `atm`.`atm` SET `FlagAttivo` = 1 WHERE `atm`.`Id_ATM` = 2";
                                     $resultcb2 = mysqli_query($conn, $sqlcb2);
                                 }
                                 else{
                                     $cb2=null;
                                     if($cb2==null)
                                     {
-                                    $sqlcb2="UPDATE `gestiredistributori`.`distributori` SET `FlagAttivo` = '0' WHERE `distributori`.`IdDistributore` = 2";
+                                    $sqlcb2="UPDATE `atm`.`atm` SET `FlagAttivo` = 0 WHERE `atm`.`Id_ATM` = 2";
                                     $resultcb2 = mysqli_query($conn, $sqlcb2);
                                     }
                                     }
                                     if(isset($_POST["cb3"]))
                                 {
                                     $cb3=$_POST["cb3"];
-                                    $sqlcb3="UPDATE `gestiredistributori`.`distributori` SET `FlagAttivo` = '1' WHERE `distributori`.`IdDistributore` = 3";
+                                    $sqlcb3="UPDATE `atm`.`atm` SET `FlagAttivo` = 1 WHERE `atm`.`Id_ATM` = 3";
                                     $resultcb3 = mysqli_query($conn, $sqlcb3);
                                 }
                                 else{
                                     $cb3=null;
                                     if($cb3==null)
                                     {
-                                    $sqlcb3="UPDATE `gestiredistributori`.`distributori` SET `FlagAttivo` = '0' WHERE `distributori`.`IdDistributore` = 3";
+                                    $sqlcb3="UPDATE `atm`.`atm` SET `FlagAttivo` = 0 WHERE `atm`.`Id_ATM` = 3";
                                     $resultcb3 = mysqli_query($conn, $sqlcb3);
                                     }
                                     }
                                     if(isset($_POST["cb4"]))
                                 {
                                     $cb4=$_POST["cb4"];
-                                    $sqlcb4="UPDATE `gestiredistributori`.`distributori` SET `FlagAttivo` = '1' WHERE `distributori`.`IdDistributore` = 4";
+                                    $sqlcb4="UPDATE `atm`.`atm` SET `FlagAttivo` = 1 WHERE `atm`.`Id_ATM` = 4";
                                     $resultcb4 = mysqli_query($conn, $sqlcb4);
                                 }
                                 else{
                                     $cb4=null;
                                     if($cb4==null)
                                     {
-                                    $sqlcb4="UPDATE `gestiredistributori`.`distributori` SET `FlagAttivo` = '0' WHERE `distributori`.`IdDistributore` = 4";
+                                    $sqlcb4="UPDATE `atm`.`atm` SET `FlagAttivo` = 0 WHERE `atm`.`Id_ATM` = 4";
                                     $resultcb4 = mysqli_query($conn, $sqlcb4);
                                     }
                                     }
                                     if(isset($_POST["cb5"]))
                                 {
                                     $cb5=$_POST["cb5"];
-                                    $sqlcb5="UPDATE `gestiredistributori`.`distributori` SET `FlagAttivo` = '1' WHERE `distributori`.`IdDistributore` = 5";
+                                    $sqlcb5="UPDATE `atm`.`atm` SET `FlagAttivo` = 1 WHERE `atm`.`Id_ATM` = 5";
                                     $resultcb5 = mysqli_query($conn, $sqlcb5);
                                 }
                                 else{
                                     $cb5=null;
                                     if($cb5==null)
                                     {
-                                    $sqlcb5="UPDATE `gestiredistributori`.`distributori` SET `FlagAttivo` = '0' WHERE `distributori`.`IdDistributore` = 5";
+                                    $sqlcb5="UPDATE `atm`.`atm` SET `FlagAttivo` = 0 WHERE `atm`.`Id_ATM` = 5";
                                     $resultcb5 = mysqli_query($conn, $sqlcb5);
                                     }
                                 }
                                     if(isset($_POST["cb6"]))
                                 {
                                     $cb6=$_POST["cb6"];
-                                    $sqlcb6="UPDATE `gestiredistributori`.`distributori` SET `FlagAttivo` = '1' WHERE `distributori`.`IdDistributore` = 6";
+                                    $sqlcb6="UPDATE `atm`.`atm` SET `FlagAttivo` = 1 WHERE `atm`.`Id_ATM` = 6";
                                     $resultcb6 = mysqli_query($conn, $sqlcb6);
                                 }
                                 else{
                                     $cb6=null;
                                     if($cb6==null)
                                     {
-                                    $sqlcb6="UPDATE `gestiredistributori`.`distributori` SET `FlagAttivo` = '0' WHERE `distributori`.`IdDistributore` = 6";
+                                    $sqlcb6="UPDATE `atm`.`atm` SET `FlagAttivo` = 0 WHERE `atm`.`Id_ATM` = 6";
                                     $resultcb6 = mysqli_query($conn, $sqlcb6);
                                     }
                                     
@@ -95,16 +95,16 @@
 
                         }
                         //PASSAGGIO ID
-                        $sqlid="SELECT `IdDistributore` FROM `distributori` WHERE 1";
+                        $sqlid="SELECT `Id_ATM` FROM `atm` WHERE 1";
                         $id=mysqli_query($conn,$sqlid);
                         $idhref=array();
                         while($row=mysqli_fetch_array($id))
                             {
-                                array_push($idhref,$row["IdDistributore"]);
+                                array_push($idhref,$row["Id_ATM"]);
                             }
 
                         
-        $sql="SELECT Nome,FlagAttivo,IdDistributore FROM distributori ORDER BY IdDistributore ASC ";
+        $sql="SELECT `Nome`,`FlagAttivo`,`Id_ATM` FROM atm order by Id_ATM ASC";
         $result = mysqli_query($conn, $sql);
         $result2 = mysqli_query($conn, $sql);
         $result3 = mysqli_query($conn, $sql);
@@ -177,7 +177,7 @@ require_once("head.php");
                                 
                                 while($row=mysqli_fetch_assoc($result3))
                                 {
-                                    echo  '<li><label class="switch"><input type="checkbox" name="cb'.$row["IdDistributore"].'"';
+                                    echo  '<li><label class="switch"><input type="checkbox" name="cb'.$row["Id_ATM"].'"';
                                      echo 'value="'.$row["Nome"].'"';
                                     
                                         if($row["FlagAttivo"]==1)
