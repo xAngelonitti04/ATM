@@ -68,12 +68,12 @@ CREATE TABLE Gestione(
 --INSERT
 
 INSERT INTO atm(Nome, Banconote20, Banconote50,FlagAttivo) VALUES 
-("DSU",20,20,"true"),
-("Virtual Bank",20,13),
-("Super",20,0),
-("Udi",20,20),
-("Apulia",0,0),
-("Center",12,10);
+("DSU",20,20,true),
+("Virtual Bank",20,13,false),
+("Super",20,0,true),
+("Udi",20,20,true),
+("Apulia",0,0,false),
+("Center",12,10,true);
 
 INSERT INTO utenti(Nome, Cognome,DataNascita) VALUES 
 ("Francesco","Tamma","2003-03-14"),
