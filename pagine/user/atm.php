@@ -11,6 +11,7 @@
     }
     if (isset($_POST["value"])) {
         $a=$_POST["value"];
+        echo $a;
        
         }
 ?>
@@ -35,10 +36,11 @@ require_once("../admin/head.php");
         </div>
     </header>
         <div class="schermo">
+            <?php require_once("login_user.php"); ?>
     </div>
     <div class="container" style="position: absolute;top:467px;left: 1732px;">
         <form action="" style="position: absolute;top: -81px;left: 56px;" method="Post" id="form">
-            <input class="display-box" type="number" id="result" disabled>
+            <input name="display_box" class="display-box" type="number" id="result" disabled>
             <input type="hidden" id="result_hidden" name="value">
         </form>
 
@@ -63,7 +65,7 @@ require_once("../admin/head.php");
     </div>
     
     <script>
-        let input_principale = $("form input")
+        let input_principale = $("form input[name=display_box]")
         let input_hidden = $("#result_hidden"); // questa è l'input che viene inviata al server php.
         let form = $("#form")
         $("div#bottoni input").click(function () {
@@ -73,8 +75,8 @@ require_once("../admin/head.php");
             } else if ($(this).val() === 'OK' && input_principale.val() !== '' && input_principale.val() !== null) {
                 form.submit()
             } else {
-                input_principale.val($(this).val())
-                input_hidden.val($(this).val())
+                input_principale.val(input_principale.val()+$(this).val())
+                input_hidden.val(input_hidden.val())
             }
         })
     </script>

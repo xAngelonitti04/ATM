@@ -65,8 +65,6 @@ CREATE TABLE Gestione(
   foreign key (id_Tecnico) references Tecnici(Id_Tecnico)
 )engine=innoDB;
 
---INSERT
-
 INSERT INTO atm(Nome, Banconote20, Banconote50,FlagAttivo) VALUES 
 ("DSU",20,20,true),
 ("Virtual Bank",20,13,false),
