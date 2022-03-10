@@ -11,6 +11,7 @@
     }
     if (isset($_POST["value"])) {
         $a=$_POST["value"];
+        echo $a;
        
         }
 ?>
@@ -35,15 +36,16 @@ require_once("../admin/head.php");
         </div>
     </header>
         <div class="schermo">
-    </div>
+            <?php require_once("login_user.php"); ?>
+        </div>
     <div class="container" style="position: absolute;top:467px;left: 1732px;">
-        <form action="" style="position: absolute;top: -81px;left: 56px;" method="Post" id="form">
+        <form style="position: absolute;top: -81px;left: 56px;" method="Post" id="form">
             <input class="display-box" type="number" id="result" disabled>
             <input type="hidden" id="result_hidden" name="value">
         </form>
 
         <div id="bottoni">
-            <input type="hidden" name="postvar" value="" />
+        <input type="hidden" name="postvar" value="" />
             <input type="submit" value="7">
             <input type="submit" value="8">
             <input type="submit" value="9"><br>
@@ -57,6 +59,7 @@ require_once("../admin/head.php");
             <input style="text-align: center;" type="button" value="0">
             <input type="submit" value="OK"><br>
         </div>
+        
     </div>
     <div style="position: absolute; top:3px; right:13px" >
     <a href="../index.html"><button class="button1">TORNA ALLA HOME</button></a>
@@ -73,8 +76,8 @@ require_once("../admin/head.php");
             } else if ($(this).val() === 'OK' && input_principale.val() !== '' && input_principale.val() !== null) {
                 form.submit()
             } else {
-                input_principale.val($(this).val())
-                input_hidden.val($(this).val())
+                input_principale.val(input_principale.val()+$(this).val())
+                input_hidden.val(input_hidden.val())
             }
         })
     </script>
