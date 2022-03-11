@@ -4,20 +4,19 @@ require_once("../../open_php_user.php");
 if (isset($_POST["value"])) {
     $a = $_POST["value"];
     //CONTROLLO CARTA
-    echo $a;
-    $_SESSION['card']= $a;
-    $sql = "SELECT Codice FROM Bancomat";
+    $Cod = $_SESSION['card'];
+    $sql = "SELECT PIN FROM Bancomat where Codice='$Cod'";
     $result = mysqli_query($conn, $sql);
      
     if (mysqli_num_rows($result) > 0) {
         
         while($row = mysqli_fetch_assoc($result)) {
-            $Codice = $row['Codice'];
+            $PIN = $row['PIN'];
             
-            if($Codice==$a)
+            if($PIN==$a)
             {
 
-                echo"<script>window.location.href='ATM1.php'</script>";
+                echo"<script>window.location.href='ATM2.php'</script>";
             }
         }
     } 
@@ -39,12 +38,15 @@ require_once("../admin/head.php");
     <header class="ScriptHeader">
         <div class="rt-container">
             <div class="col-rt-12" style="float: left;">
-                <h1 class="rt-heading" style="font-size:50px">ATM <?php echo $quantita_[0]; ?></h1>
+                <h1 class="rt-heading" style="font-size:50px">ATM</h1>
             </div>
         </div>
     </header>
     <div class="schermo">
-        
+    <input type="submit" value="Preleva" OnClick='Preleva()'> <br>
+    <input type="submit" value="Versa" OnClick='Versa()'><br>
+    <input type="submit" value="EstrattoConto" OnClick='EstrattoConto()'><br>
+    <input type="submit" value="Esci" OnClick='Esci()'><br>
     </div>
     <div class="container" style="position: absolute;top:467px;left: 1732px;">
         <form style="position: absolute;top: -81px;left: 56px;" method="Post" id="form">
@@ -74,7 +76,23 @@ require_once("../admin/head.php");
     </div>
 
     <script>
-        
+        function Preleva()
+        {
+            window.location.href='Preleva.php'
+            
+        };
+        function Versa()
+        {
+            window.location.href='Versa.php'
+        };
+        function EstrattoConto()
+        {
+            window.location.href='EstrattoConto.php'
+        };
+        function Esci()
+        {
+            window.location.href='Atm.php'
+        };
         let input_principale = $("form input")
         let input_hidden = $("#result_hidden"); // questa è l'input che viene inviata al server php.
         let form = $("#form")

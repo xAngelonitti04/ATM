@@ -41,11 +41,14 @@ CREATE TABLE Bancomat(
 
 CREATE TABLE Movimenti(
   Id_Movimento integer not null auto_increment primary key,
+  Importo integer not null,
+  TipoMovimento varchar(20) not null,
   DataOra Datetime not null,
   Codice varchar(16) not null,
   foreign key (Codice) references Bancomat(Codice),
   id_Conto integer not null,
   foreign key (id_Conto) references Conti(Id_Conto)
+ 
 
 )engine=innoDB;
 
