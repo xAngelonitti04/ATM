@@ -4,20 +4,19 @@ require_once("../../open_php_user.php");
 if (isset($_POST["value"])) {
     $a = $_POST["value"];
     //CONTROLLO CARTA
-    echo $a;
-    $_SESSION['card']= $a;
-    $sql = "SELECT Codice FROM Bancomat";
+    $Cod = $_SESSION['card'];
+    $sql = "SELECT PIN FROM Bancomat where Codice='$Cod'";
     $result = mysqli_query($conn, $sql);
      
     if (mysqli_num_rows($result) > 0) {
         
         while($row = mysqli_fetch_assoc($result)) {
-            $Codice = $row['Codice'];
+            $PIN = $row['PIN'];
             
-            if($Codice==$a)
+            if($PIN==$a)
             {
 
-                echo"<script>window.location.href='ATM1.php'</script>";
+                echo"<script>window.location.href='ATM2.php'</script>";
             }
         }
     } 

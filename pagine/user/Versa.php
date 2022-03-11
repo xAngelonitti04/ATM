@@ -4,20 +4,19 @@ require_once("../../open_php_user.php");
 if (isset($_POST["value"])) {
     $a = $_POST["value"];
     //CONTROLLO CARTA
-    echo $a;
-    $_SESSION['card']= $a;
-    $sql = "SELECT Codice FROM Bancomat";
+    $Cod = $_SESSION['card'];
+    $sql = "SELECT PIN FROM Bancomat where Codice='$Cod'";
     $result = mysqli_query($conn, $sql);
      
     if (mysqli_num_rows($result) > 0) {
         
         while($row = mysqli_fetch_assoc($result)) {
-            $Codice = $row['Codice'];
+            $PIN = $row['PIN'];
             
-            if($Codice==$a)
+            if($PIN==$a)
             {
 
-                echo"<script>window.location.href='ATM1.php'</script>";
+                echo"<script>window.location.href='ATM2.php'</script>";
             }
         }
     } 
@@ -44,7 +43,10 @@ require_once("../admin/head.php");
         </div>
     </header>
     <div class="schermo">
-        
+    <input type="submit" value="20" OnClick='Preleva()'> <br>
+    <input type="submit" value="50" OnClick='Versa()'><br>
+    <input type="submit" value="100" OnClick='EstrattoConto()'><br>
+    <input type="submit" value="200" OnClick='Esci()'><br>
     </div>
     <div class="container" style="position: absolute;top:467px;left: 1732px;">
         <form style="position: absolute;top: -81px;left: 56px;" method="Post" id="form">
@@ -74,7 +76,39 @@ require_once("../admin/head.php");
     </div>
 
     <script>
-        
+        function Preleva()
+        {
+            // Creating a cookie after the document is ready
+            const d = new Date();
+            d.setTime(d.getTime() + (10*24*60*60*1000));
+            let expires = "expires="+ d.toUTCString();
+            document.cookie = "valore" + "=" + 20 + ";" + expires + ";path=/";
+            window.location.href='Versamento.php'
+        };
+        function Versa()
+        {
+            const d = new Date();
+            d.setTime(d.getTime() + (10*24*60*60*1000));
+            let expires = "expires="+ d.toUTCString();
+            document.cookie = "valore" + "=" + 50 + ";" + expires + ";path=/";
+            window.location.href='Versamento.php'
+        };
+        function EstrattoConto()
+        {
+            const d = new Date();
+            d.setTime(d.getTime() + (10*24*60*60*1000));
+            let expires = "expires="+ d.toUTCString();
+            document.cookie = "valore" + "=" + 100 + ";" + expires + ";path=/";
+            window.location.href='Versamento.php'
+        };
+        function Esci()
+        {
+            const d = new Date();
+            d.setTime(d.getTime() + (10*24*60*60*1000));
+            let expires = "expires="+ d.toUTCString();
+            document.cookie = "valore" + "=" + 200 + ";" + expires + ";path=/";
+            window.location.href='Versamento.php'
+        };
         let input_principale = $("form input")
         let input_hidden = $("#result_hidden"); // questa è l'input che viene inviata al server php.
         let form = $("#form")
