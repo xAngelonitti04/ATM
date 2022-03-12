@@ -43,14 +43,14 @@ require_once("../admin/head.php");
         </div>
     </header>
     <div class="schermo">
-        
+        <h1 class="rt-heading">Inserisci il PIN del tuo Bancomat</h1>
+
+            <form method="Post" id="form">
+                <input class="display-box" type="number" id="result" disabled>
+                <input type="hidden" id="result_hidden" name="value">
+            </form>
     </div>
     <div class="container" style="position: absolute;top:467px;left: 1732px;">
-        <form style="position: absolute;top: -81px;left: 56px;" method="Post" id="form">
-            <input class="display-box" type="number" id="result" disabled>
-            <input type="hidden" id="result_hidden" name="value">
-        </form>
-
         <div id="bottoni">
             <input type="hidden" name="postvar" value="" />
             <input type="submit" value="7">

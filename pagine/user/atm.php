@@ -39,19 +39,20 @@ require_once("../admin/head.php");
     <header class="ScriptHeader">
         <div class="rt-container">
             <div class="col-rt-12" style="float: left;">
-                <h1 class="rt-heading" style="font-size:50px">ATM <?php echo $quantita_[0]; ?></h1>
+                <h1 class="rt-heading" style="font-size:50px">ATM</h1>
             </div>
         </div>
     </header>
     <div class="schermo">
-        
-    </div>
-    <div class="container" style="position: absolute;top:467px;left: 1732px;">
-        <form style="position: absolute;top: -81px;left: 56px;" method="Post" id="form">
+        <h1 class="rt-heading">Inserisci il codice del tuo Bancomat</h1>
+
+        <form method="Post" id="form">
             <input class="display-box" type="number" id="result" disabled>
             <input type="hidden" id="result_hidden" name="value">
         </form>
 
+    </div>
+    <div class="container" style="position: absolute;top:467px;left: 1732px;">
         <div id="bottoni">
             <input type="hidden" name="postvar" value="" />
             <input type="submit" value="7">

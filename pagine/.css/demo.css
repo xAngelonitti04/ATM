@@ -108,6 +108,9 @@ h2 span {
 .rt-heading {
     margin: 0 auto;
 	text-align:center;
+  color: #ff8800c4;
+  margin-top: 20px;
+  width: 100%;
 }
 .Scriptcontent{
 	line-height:28px;	
@@ -252,5 +255,9 @@ h2 span {
 }
 
 
-
-
+.schermo {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  flex-wrap: wrap;
+}

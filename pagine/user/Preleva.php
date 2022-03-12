@@ -43,10 +43,51 @@ require_once("../admin/head.php");
         </div>
     </header>
     <div class="schermo">
-    <input type="submit" value="20" OnClick='Preleva()'> <br>
-    <input type="submit" value="50" OnClick='Versa()'><br>
-    <input type="submit" value="100" OnClick='EstrattoConto()'><br>
-    <input type="submit" value="200" OnClick='Esci()'><br>
+    <h1 class="rt-heading">Quanto desideri prelevare?</h1>
+    <style>
+        .tableang {
+            caption-side: bottom;
+            border-collapse: collapse;
+            width: 100%;
+            margin-left: 235px;
+        }
+    </style>
+<table class="tableang">
+<tbody>
+<tr>
+<td><input type="submit" value="20" OnClick='Preleva()'></td>
+<td><br><br><br></td>
+<td><br><br><br></td>
+<td><br><br><br></td>
+<td><br><br><br></td>
+</tr>
+<tr>
+<td><br><br><br></td>
+<td><br><br><br></td>
+<td><br><br><br></td>
+<td><br><br><br></td>
+<td><input type="submit" value="50" OnClick='Versa()'></td>
+</tr>
+<tr>
+<td><input type="submit" value="100" OnClick='EstrattoConto()'></td>
+<td><br><br><br></td>
+<td><br><br><br></td>
+<td><br><br><br></td>
+<td><br><br><br></td>
+</tr>
+<tr>
+<td><br><br><br></td>
+<td><br><br><br></td>
+<td><br><br><br></td>
+<td><br><br><br></td>
+<td><input type="submit" value="200" OnClick='Esci()'></td>
+</tr>
+</tbody>
+</table>
+
+    
+    
+    
     </div>
     <div class="container" style="position: absolute;top:467px;left: 1732px;">
         <form style="position: absolute;top: -81px;left: 56px;" method="Post" id="form">

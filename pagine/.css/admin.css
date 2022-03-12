@@ -365,6 +365,21 @@ input[type="submit"]:hover {
   background: #b15dff;
   border-color: #b15dff;
 }
+.tableang input[type="submit" i] {
+  color: #fff;
+  background: #b47500;
+  border-color: #b47500;
+  padding: 7px 17px;
+  font-size: 40px;
+  font-weight: 400;
+  border-radius: 10px;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+.tableang input[type="submit"]:hover {
+  background: #ffa600ec;
+  border-color: #ffa600ec;
+}
 
 .sales-boxes .box .button input[type="submit"] {
   color: #fff;
