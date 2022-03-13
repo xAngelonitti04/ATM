@@ -43,7 +43,7 @@ require_once("../admin/head.php");
         </div>
     </header>
     <div class="schermo">
-    <h1 class="rt-heading">Cosa desideri fare?</h1>
+    <h1 class="rt-heading">Cosa desideri fare?<?php echo $_SESSION["id"];?></h1>
     <style>
         .tableang {
             caption-side: bottom;

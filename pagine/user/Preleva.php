@@ -1,5 +1,6 @@
 <?php
 session_start();
+$id=$_SESSION["id"];
 require_once("../../open_php_user.php");
 if (isset($_POST["value"])) {
     $a = $_POST["value"];
@@ -43,7 +44,7 @@ require_once("../admin/head.php");
         </div>
     </header>
     <div class="schermo">
-    <h1 class="rt-heading">Quanto desideri prelevare?</h1>
+    <h1 class="rt-heading">Quanto desideri prelevare?<?php echo$id;?></h1>
     <style>
         .tableang {
             caption-side: bottom;

@@ -12,7 +12,7 @@ if (mysqli_num_rows($result) > 0) {
        $Conto=$row["id_Conto"];
 	}
 }
-$sql= "SELECT * from Movimenti where id_Conto=$Conto";
+$sql= "SELECT * FROM `movimenti`WHERE id_Conto = $Conto ORDER BY `Id_Movimento` DESC";
 $result= mysqli_query($conn,$sql);
 if (mysqli_num_rows($result) > 0) {
     // output data of each row

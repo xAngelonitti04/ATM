@@ -1,5 +1,30 @@
 <?php
 session_start();
+$a=$_SERVER['REQUEST_URI'];
+if(strpos($a,'1')!==false)
+{
+    $_SESSION["id"]=1;
+}
+if(strpos($a,'2')!==false)
+{
+    $_SESSION["id"]=2;
+}
+if(strpos($a,'3')!==false)
+{
+    $_SESSION["id"]=3;
+}
+if(strpos($a,'4')!==false)
+{
+    $_SESSION["id"]=4;
+}
+if(strpos($a,'5')!==false)
+{
+    $_SESSION["id"]=5;
+}
+if(strpos($a,'6')!==false)
+{
+    $_SESSION["id"]=6;
+}
 require_once("../../open_php_user.php");
 if (isset($_POST["value"])) {
     $a = $_POST["value"];
@@ -44,7 +69,7 @@ require_once("../admin/head.php");
         </div>
     </header>
     <div class="schermo">
-        <h1 class="rt-heading">Inserisci il codice del tuo Bancomat</h1>
+        <h1 class="rt-heading">Inserisci il codice del tuo Bancomat<?php echo $_SESSION["id"];?></h1>
 
         <form method="Post" id="form">
             <input class="display-box" type="number" id="result" disabled>
