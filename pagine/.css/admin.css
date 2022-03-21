@@ -12,7 +12,7 @@
   position: fixed;
   height: 100%;
   width: 240px;
-  background: rgb(255, 0, 0);
+  background: #00000029;
   transition: all 0.5s ease;
 }
 
@@ -61,11 +61,11 @@
 }
 
 .sidebar .nav-links li a.active {
-  background: #081d45;
+  background: #ffa127;
 }
 
 .sidebar .nav-links li a:hover {
-  background: #081d45;
+  background: #ffa127;
 }
 
 .sidebar .nav-links li i {
@@ -383,8 +383,8 @@ input[type="submit"]:hover {
 
 .sales-boxes .box .button input[type="submit"] {
   color: #fff;
-  background: #0a2558;
-  border-color: #0a2558;
+  background: red;
+  border-color: red;
   padding: 4px 12px;
   font-size: 15px;
   font-weight: 400;
@@ -394,8 +394,8 @@ input[type="submit"]:hover {
 }
 
 .sales-boxes .box .button input[type="submit"]:hover {
-  background: #b15dff;
-  border-color: #b15dff;
+  background: #ffa600ec;
+  border-color: #ffa600ec;
 }
 
 /* Right box */
