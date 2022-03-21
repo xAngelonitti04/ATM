@@ -1,4 +1,5 @@
 <?php
+$errore=0;
 session_start();
 require_once("../../open_php_user.php");
 if (isset($_POST["value"])) {
@@ -17,6 +18,10 @@ if (isset($_POST["value"])) {
             {
 
                 echo"<script>window.location.href='ATM2.php'</script>";
+            }
+            else
+            {
+                $errore=1;
             }
         }
     } 
@@ -46,7 +51,8 @@ require_once("../admin/head.php");
         <h1 class="rt-heading">Inserisci il PIN del tuo Bancomat</h1>
 
             <form method="Post" id="form">
-                <input class="display-box" type="number" id="result" disabled>
+                <input class="display-box" type="password" id="result" disabled>
+                <?php if($errore==1){echo'<h1 class="rt-heading">Codice Pin Errato</h1>';} ?>
                 <input type="hidden" id="result_hidden" name="value">
             </form>
     </div>

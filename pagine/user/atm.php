@@ -1,4 +1,5 @@
 <?php
+$errore=0;
 session_start();
 $a=$_SERVER['REQUEST_URI'];
 if(strpos($a,'1')!==false)
@@ -44,6 +45,10 @@ if (isset($_POST["value"])) {
 
                 echo"<script>window.location.href='ATM1.php'</script>";
             }
+            else
+            {
+                $errore=1;
+            }
         }
     } 
     else 
@@ -69,10 +74,11 @@ require_once("../admin/head.php");
         </div>
     </header>
     <div class="schermo">
-        <h1 class="rt-heading">Inserisci il codice del tuo Bancomat<?php echo $_SESSION["id"];?></h1>
+        <h1 class="rt-heading">Inserisci il codice del tuo Bancomat</h1>
 
         <form method="Post" id="form">
             <input class="display-box" type="number" id="result" disabled>
+            <?php if($errore==1){echo'<h1 class="rt-heading">Codice Bancomat Errato</h1>';} ?>
             <input type="hidden" id="result_hidden" name="value">
         </form>
 
