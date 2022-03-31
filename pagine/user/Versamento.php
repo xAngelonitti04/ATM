@@ -45,7 +45,18 @@ if (mysqli_num_rows($result) > 0) {
         $result=mysqli_query($conn,$sql);
         $DEO = date("Y-m-d")." ".date("H-i-s");
 $sql = "INSERT INTO movimenti(Importo,TipoMovimento, DataOra, Codice, id_Conto) VALUES ($val,'Versamento','$DEO','$card',$Conto)";
-echo "VERSAMENTO COMPLETATO";
+require_once("../admin/head.php");
+echo'<div style="position: relative;top: 24em;left: 54em">
+<div class="spinner">
+  <span></span>
+  <span></span>
+  <span></span>
+  <span></span>
+</div>
+<div style="position: relative;top: -1em;left: -2em">
+VERSAMENTO COMPLETATO</div>
+</div>';
+ 
  
 if (mysqli_query($conn, $sql)) {
 } 
@@ -73,7 +84,92 @@ if($val==50)
         $result=mysqli_query($conn,$sql);
         $DEO = date("Y-m-d")." ".date("H-i-s");
 $sql = "INSERT INTO movimenti(Importo,TipoMovimento, DataOra, Codice, id_Conto) VALUES ($val,'Versamento','$DEO','$card',$Conto)";
-echo "VERSAMENTO COMPLETATO";
+require_once("../admin/head.php");
+echo'<div style="position: relative;top: 24em;left: 54em">
+<div class="spinner">
+  <span></span>
+  <span></span>
+  <span></span>
+  <span></span>
+</div>
+<div style="position: relative;top: -1em;left: -2em">
+VERSAMENTO COMPLETATO</div>
+</div>';
+ 
+ 
+if (mysqli_query($conn, $sql)) {
+} 
+else {
+    echo "Error: " . $sql . "<br>" . mysqli_error($conn);
+}
+    
+}
+if($val==100)
+    {
+      $sql="SELECT Banconote50 from atm where id_ATM=$id";
+      $result=mysqli_query($conn,$sql);
+      if (mysqli_num_rows($result) > 0) {
+        // output data of each row
+        while($row = mysqli_fetch_assoc($result)) 
+        {
+           $Banconote50 = $row['Banconote50'];
+        }
+    }
+        $Saldo = $Saldo+$val;
+        $sql="UPDATE atm.atm SET Banconote50 = Banconote50+2 WHERE atm.Id_ATM = $id";
+        $result=mysqli_query($conn,$sql);
+        $DEO = date("Y-m-d")." ".date("H-i-s");
+$sql = "INSERT INTO movimenti(Importo,TipoMovimento, DataOra, Codice, id_Conto) VALUES ($val,'Versamento','$DEO','$card',$Conto)";
+require_once("../admin/head.php");
+echo'<div style="position: relative;top: 24em;left: 54em">
+<div class="spinner">
+  <span></span>
+  <span></span>
+  <span></span>
+  <span></span>
+</div>
+<div style="position: relative;top: -1em;left: -2em">
+VERSAMENTO COMPLETATO</div>
+</div>';
+ 
+ 
+if (mysqli_query($conn, $sql)) {
+} 
+else {
+    echo "Error: " . $sql . "<br>" . mysqli_error($conn);
+}
+    
+}
+
+if($val==200)
+    {
+      $sql="SELECT Banconote50,Banconote20 from atm where id_ATM=$id";
+      $result=mysqli_query($conn,$sql);
+      if (mysqli_num_rows($result) > 0) {
+        // output data of each row
+        while($row = mysqli_fetch_assoc($result)) 
+        {
+           $Banconote50 = $row['Banconote50'];
+           $Banconote20 = $row["Banconote20"];
+        }
+    }
+        $Saldo = $Saldo+$val;
+        $sql="UPDATE atm.atm SET Banconote50 = Banconote50 + 2 and Banconote20 = Banconote20 + 5 WHERE atm.Id_ATM = $id";
+        $result=mysqli_query($conn,$sql);
+        $DEO = date("Y-m-d")." ".date("H-i-s");
+$sql = "INSERT INTO movimenti(Importo,TipoMovimento, DataOra, Codice, id_Conto) VALUES ($val,'Versamento','$DEO','$card',$Conto)";
+require_once("../admin/head.php");
+echo'<div style="position: relative;top: 24em;left: 54em">
+<div class="spinner">
+  <span></span>
+  <span></span>
+  <span></span>
+  <span></span>
+</div>
+<div style="position: relative;top: -1em;left: -2em">
+VERSAMENTO COMPLETATO</div>
+</div>';
+ 
  
 if (mysqli_query($conn, $sql)) {
 } 

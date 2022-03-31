@@ -1,5 +1,5 @@
 body {
-  background: linear-gradient(45deg, #fc466b, #3f5efb);
+
   height: 100vh;
   font-family: "Montserrat", sans-serif;
 }
@@ -176,7 +176,7 @@ button:focus {
 .schermo {
   position: absolute;
   top:219px;
-  left: 122px;
+  left: 467px;
   background: rgba(255, 255, 255, 0.3);
   height: 511px;
   width: 868px;

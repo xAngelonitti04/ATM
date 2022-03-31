@@ -30,7 +30,18 @@ require_once("../../open_php_user.php");
 if (isset($_POST["value"])) {
     $a = $_POST["value"];
     //CONTROLLO CARTA
-    echo $a;
+    require_once("../admin/head.php");
+echo'<div style="position: relative;top: 24em;left: 54em">
+<div class="spinner">
+  <span></span>
+  <span></span>
+  <span></span>
+  <span></span>
+</div>
+<div style="position: relative;top: -1em;left: -2em">
+CARTA RICONOSCIUTA</div>
+</div>';
+ 
     $_SESSION['card']= $a;
     $sql = "SELECT Codice FROM Bancomat";
     $result = mysqli_query($conn, $sql);
@@ -83,7 +94,7 @@ require_once("../admin/head.php");
         </form>
 
     </div>
-    <div class="container" style="position: absolute;top:467px;left: 1732px;">
+    <div class="container" style="position: absolute;top:467px;left:2017px;">
         <div id="bottoni">
             <input type="hidden" name="postvar" value="" />
             <input type="submit" value="7">
@@ -99,8 +110,6 @@ require_once("../admin/head.php");
             <input style="text-align: center;" type="button" value="0">
             <input type="submit" value="OK"><br>
         </div>
-
-    </div>
     <div style="position: absolute; top:3px; right:13px">
         <a href="../index.html"><button class="button1">TORNA ALLA HOME</button></a>
     </div>
@@ -122,6 +131,6 @@ require_once("../admin/head.php");
             }
         })
     </script>
+       
 </body>
-
 </html>

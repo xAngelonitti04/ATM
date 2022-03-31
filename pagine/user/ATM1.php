@@ -4,6 +4,18 @@ session_start();
 require_once("../../open_php_user.php");
 if (isset($_POST["value"])) {
     $a = $_POST["value"];
+    require_once("../admin/head.php");
+echo'<div style="position: relative;top: 24em;left: 54em">
+<div class="spinner">
+  <span></span>
+  <span></span>
+  <span></span>
+  <span></span>
+</div>
+<div style="position: relative;top: -1em;left: -2em">
+PIN CORRETTO</div>
+</div>';
+ 
     //CONTROLLO CARTA
     $Cod = $_SESSION['card'];
     $sql = "SELECT PIN FROM Bancomat where Codice='$Cod'";
@@ -56,7 +68,7 @@ require_once("../admin/head.php");
                 <input type="hidden" id="result_hidden" name="value">
             </form>
     </div>
-    <div class="container" style="position: absolute;top:467px;left: 1732px;">
+    <div class="container" style="position: absolute;top:467px;left:2017px;">
         <div id="bottoni">
             <input type="hidden" name="postvar" value="" />
             <input type="submit" value="7">
