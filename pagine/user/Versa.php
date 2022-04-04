@@ -38,7 +38,7 @@ require_once("../admin/head.php");
     <header class="ScriptHeader">
         <div class="rt-container">
             <div class="col-rt-12" style="float: left;">
-                <h1 class="rt-heading" style="font-size:50px">ATM</h1>
+                <h1 class="rt-heading" style="font-size:50px">ATM <?php echo $_SESSION["nome"];?></h1>
             </div>
         </div>
     </header>
