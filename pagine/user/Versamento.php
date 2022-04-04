@@ -4,6 +4,7 @@ $id=$_SESSION["id"];
 $card = $_SESSION['card'];
 $val = $_COOKIE['valore'];
 require_once("../../open_php.php");
+require_once("../admin/head.php");
 $sql = "SELECT id_Conto FROM bancomat where Codice='$card'";
 $result = mysqli_query($conn, $sql);
  
@@ -45,15 +46,14 @@ if (mysqli_num_rows($result) > 0) {
         $result=mysqli_query($conn,$sql);
         $DEO = date("Y-m-d")." ".date("H-i-s");
 $sql = "INSERT INTO movimenti(Importo,TipoMovimento, DataOra, Codice, id_Conto) VALUES ($val,'Versamento','$DEO','$card',$Conto)";
-require_once("../admin/head.php");
-echo'<div style="position: relative;top: 24em;left: 54em">
+echo'<div class="spinner-sopra">
 <div class="spinner">
   <span></span>
   <span></span>
   <span></span>
   <span></span>
 </div>
-<div style="position: relative;top: -1em;left: -2em">
+<div>
 VERSAMENTO COMPLETATO</div>
 </div>';
  
@@ -84,15 +84,14 @@ if($val==50)
         $result=mysqli_query($conn,$sql);
         $DEO = date("Y-m-d")." ".date("H-i-s");
 $sql = "INSERT INTO movimenti(Importo,TipoMovimento, DataOra, Codice, id_Conto) VALUES ($val,'Versamento','$DEO','$card',$Conto)";
-require_once("../admin/head.php");
-echo'<div style="position: relative;top: 24em;left: 54em">
+echo'<div class="spinner-sopra">
 <div class="spinner">
   <span></span>
   <span></span>
   <span></span>
   <span></span>
 </div>
-<div style="position: relative;top: -1em;left: -2em">
+<div>
 VERSAMENTO COMPLETATO</div>
 </div>';
  
@@ -120,15 +119,14 @@ if($val==100)
         $result=mysqli_query($conn,$sql);
         $DEO = date("Y-m-d")." ".date("H-i-s");
 $sql = "INSERT INTO movimenti(Importo,TipoMovimento, DataOra, Codice, id_Conto) VALUES ($val,'Versamento','$DEO','$card',$Conto)";
-require_once("../admin/head.php");
-echo'<div style="position: relative;top: 24em;left: 54em">
+echo'<div class="spinner-sopra">
 <div class="spinner">
   <span></span>
   <span></span>
   <span></span>
   <span></span>
 </div>
-<div style="position: relative;top: -1em;left: -2em">
+<div>
 VERSAMENTO COMPLETATO</div>
 </div>';
  
@@ -154,19 +152,18 @@ if($val==200)
         }
     }
         $Saldo = $Saldo+$val;
-        $sql="UPDATE atm.atm SET Banconote50 = Banconote50 + 2 and Banconote20 = Banconote20 + 5 WHERE atm.Id_ATM = $id";
+        $sql="UPDATE atm SET Banconote50 = Banconote50 + 2, Banconote20 = Banconote20 + 5 WHERE Id_ATM =$id";
         $result=mysqli_query($conn,$sql);
         $DEO = date("Y-m-d")." ".date("H-i-s");
 $sql = "INSERT INTO movimenti(Importo,TipoMovimento, DataOra, Codice, id_Conto) VALUES ($val,'Versamento','$DEO','$card',$Conto)";
-require_once("../admin/head.php");
-echo'<div style="position: relative;top: 24em;left: 54em">
+echo'<div class="spinner-sopra">
 <div class="spinner">
   <span></span>
   <span></span>
   <span></span>
   <span></span>
 </div>
-<div style="position: relative;top: -1em;left: -2em">
+<div>
 VERSAMENTO COMPLETATO</div>
 </div>';
  

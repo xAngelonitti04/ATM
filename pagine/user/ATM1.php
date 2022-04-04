@@ -5,16 +5,7 @@ require_once("../../open_php_user.php");
 if (isset($_POST["value"])) {
     $a = $_POST["value"];
     require_once("../admin/head.php");
-echo'<div style="position: relative;top: 24em;left: 54em">
-<div class="spinner">
-  <span></span>
-  <span></span>
-  <span></span>
-  <span></span>
-</div>
-<div style="position: relative;top: -1em;left: -2em">
-PIN CORRETTO</div>
-</div>';
+
  
     //CONTROLLO CARTA
     $Cod = $_SESSION['card'];
@@ -28,8 +19,17 @@ PIN CORRETTO</div>
             
             if($PIN==$a)
             {
-
-                echo"<script>window.location.href='ATM2.php'</script>";
+                echo'<div class="spinner-sopra">
+                        <div class="spinner">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        </div>
+                        <div>
+                        PIN CORRETTO</div>
+                        </div>';
+                        echo"<script>window.location.href='ATM2.php'</script>";
             }
             else
             {
@@ -55,7 +55,7 @@ require_once("../admin/head.php");
     <header class="ScriptHeader">
         <div class="rt-container">
             <div class="col-rt-12" style="float: left;">
-                <h1 class="rt-heading" style="font-size:50px">ATM</h1>
+                <h1 class="rt-heading" style="font-size:50px">ATM<?php echo $_SESSION["nome"];?></h1>
             </div>
         </div>
     </header>

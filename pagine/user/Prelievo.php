@@ -4,6 +4,7 @@ $id=$_SESSION["id"];
 $card = $_SESSION['card'];
 $val = $_COOKIE['valore'];
 require_once("../../open_php.php");
+require_once("../admin/head.php");
 $sql = "SELECT id_Conto FROM bancomat where Codice='$card'";
 $result = mysqli_query($conn, $sql);
  
@@ -49,7 +50,17 @@ else
     }
     if($Banconote20==0)
     {
-        echo "Le banconote da 20 non sono presenti all'interno di questo ATM, ci scusiamo per il disagio";
+        echo "<div class='spinner-sopra'>
+                <div class='spinner'>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                </div>
+                <div>
+                Banconote da 20 non disponibili
+                </div>
+                </div>";
     }
     else
     {
@@ -58,15 +69,14 @@ else
         $result=mysqli_query($conn,$sql);
         $DEO = date("Y-m-d")." ".date("H-i-s");
 $sql = "INSERT INTO movimenti(Importo,TipoMovimento, DataOra, Codice, id_Conto) VALUES ($val,'Prelievo','$DEO','$card',$Conto)";
-require_once("../admin/head.php");
-echo'<div style="position: relative;top: 24em;left: 54em">
+echo'<div class="spinner-sopra">
 <div class="spinner">
   <span></span>
   <span></span>
   <span></span>
   <span></span>
 </div>
-<div style="position: relative;top: -1em;left: -2em">
+<div>
 PRELIEVO COMPLETATO</div>
 </div>';
  
@@ -94,7 +104,18 @@ if($val==50)
     }
     if($Banconote50==0)
     {
-        echo "Le banconote da 50 non sono presenti all'interno di questo ATM, ci scusiamo per il disagio";
+     
+        echo "<div class='spinner-sopra'>
+                <div class='spinner'>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                </div>
+                <div>
+                Banconote da 50 non disponibili
+                </div>
+                </div>";
     }
     else
     {
@@ -103,15 +124,14 @@ if($val==50)
         $result=mysqli_query($conn,$sql);
         $DEO = date("Y-m-d")." ".date("H-i-s");
 $sql = "INSERT INTO movimenti(Importo,TipoMovimento, DataOra, Codice, id_Conto) VALUES ($val,'Prelievo','$DEO','$card',$Conto)";
-require_once("../admin/head.php");
-echo'<div style="position: relative;top: 24em;left: 54em">
+echo'<div class="spinner-sopra">
 <div class="spinner">
   <span></span>
   <span></span>
   <span></span>
   <span></span>
 </div>
-<div style="position: relative;top: -1em;left: -2em">
+<div>
 PRELIEVO COMPLETATO</div>
 </div>';
  
@@ -135,7 +155,16 @@ if($val==100)
     }
     if($Banconote50==0)
     {
-        echo "Le banconote da 50 non sono presenti all'interno di questo ATM, ci scusiamo per il disagio";
+        echo "<div class='spinner-sopra'>
+                <div class='spinner'>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                </div>
+                <div>
+                Banconote da 50 non disponibili</div>
+                </div>";
     }
     else
     {
@@ -144,15 +173,14 @@ if($val==100)
         $result=mysqli_query($conn,$sql);
         $DEO = date("Y-m-d")." ".date("H-i-s");
 $sql = "INSERT INTO movimenti(Importo,TipoMovimento, DataOra, Codice, id_Conto) VALUES ($val,'Prelievo','$DEO','$card',$Conto)";
-require_once("../admin/head.php");
-echo'<div style="position: relative;top: 24em;left: 54em">
+echo'<div class="spinner-sopra">
 <div class="spinner">
   <span></span>
   <span></span>
   <span></span>
   <span></span>
 </div>
-<div style="position: relative;top: -1em;left: -2em">
+<div>
 PRELIEVO COMPLETATO</div>
 </div>';
  
@@ -177,24 +205,32 @@ if($val==200)
     }
     if($Banconote50<2||$Banconote20<5)
     {
-        echo "Le banconote non sono presenti all'interno di questo ATM, ci scusiamo per il disagio";
+        echo "<div class='spinner-sopra'>
+                <div class='spinner'>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                </div>
+                <div>
+                Banconote non disponibili</div>
+                </div>";
     }
     else
     {
         $Saldo = $Saldo-$val;
-        $sql="UPDATE atm.atm SET Banconote50 = Banconote50-2 and Banconote20=Banconote20-5 WHERE atm.Id_ATM = $id";
+        $sql="UPDATE atm SET Banconote50 = Banconote50 - 2, Banconote20 = Banconote20 - 5 WHERE Id_ATM =$id";
         $result=mysqli_query($conn,$sql);
         $DEO = date("Y-m-d")." ".date("H-i-s");
 $sql = "INSERT INTO movimenti(Importo,TipoMovimento, DataOra, Codice, id_Conto) VALUES ($val,'Prelievo','$DEO','$card',$Conto)";
-require_once("../admin/head.php");
-echo'<div style="position: relative;top: 24em;left: 54em">
+echo'<div class="spinner-sopra">
 <div class="spinner">
   <span></span>
   <span></span>
   <span></span>
   <span></span>
 </div>
-<div style="position: relative;top: -1em;left: -2em">
+<div>
 PRELIEVO COMPLETATO</div>
 </div>';
  

@@ -1,3 +1,11 @@
+.spinner-sopra{
+    height:100vh;
+    flex-direction:column;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
+
 .spinner {
     --gap: 5px;
     --clr: #ff8800c4;
