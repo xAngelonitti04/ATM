@@ -67,7 +67,7 @@ require_once("head.php");
         <nav>
             <div class="sidebar-button">
                 <i class='bx bx-menu sidebarBtn'></i>
-                <span class="dashboard">Distributori</span>
+                <span class="dashboard">ATM</span>
 
             </div>
         </nav>
@@ -109,7 +109,7 @@ require_once("head.php");
                             if($quantita20[0]==0 || $quantita50[0] == 0)
                             {
                                 echo'<form action = "" method="POST">';
-                                echo ' <li>' . '<input type ="submit" name ="massimo"' . '" value="MAX" class="sus"> ' . '</li></form>';
+                                echo ' <li>' . '<div class="button"><input type ="submit" name ="massimo"' . '" value="MAX"></div> ' . '</li></form>';
                                 if(isset($_POST["massimo"]))
                                 {
                                     $sql="UPDATE atm SET Banconote50 =20, Banconote20 = 20 WHERE Id_ATM =".$_SESSION["id"];
@@ -119,7 +119,7 @@ require_once("head.php");
                             }
                             else
                             {
-                                echo ' <li>' . '<input type ="submit" name ="massimo"' . '" value="FULL" class="sus" disabled> ' . '</li>';
+                                echo ' <li>' . '<div class="button"><input type ="submit" name ="massimo"' . '" value="FULL" disabled></div> ' . '</li>';
                             }
                             ?>
                         </ul>
