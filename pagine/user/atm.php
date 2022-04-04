@@ -1,7 +1,7 @@
 <?php
 error_reporting(0);
     # read contents from json file contained in $_POST['file']
-    $json = file_get_contents("E:\gennaro.json");
+    $json = file_get_contents("E:\Gennaro.json");
     if(isset($json)){
         $data = json_decode($json, true);
     
@@ -40,6 +40,18 @@ require_once("../../open_php_user.php");
     $sql = "SELECT Codice FROM Bancomat";
     $result = mysqli_query($conn, $sql);
 }
+$flag="SELECT FlagAttivo from atm where Id_ATM=".$_SESSION['id'];
+$resultflag=mysqli_query($conn,$flag);
+while($row=mysqli_fetch_assoc($resultflag))
+{
+    $flagattivo=$row["FlagAttivo"];
+}
+if($flagattivo == 0)
+{
+    echo"ATM DISATTIVATO, RIPROVARE PIU' TARDI";
+}
+else
+{
     if (mysqli_num_rows($result) > 0) {
 
         while ($row = mysqli_fetch_assoc($result)) {
@@ -119,7 +131,8 @@ input[type="submit"]:hover {
             
             <?php if ($errore == 1) {
                 echo '<h1 class="rt-heading">Codice Bancomat non registrato</h1>';
-            } ?>
+            }
+         } ?>
         </form>
                    
     </div>

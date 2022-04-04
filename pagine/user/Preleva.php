@@ -44,7 +44,7 @@ require_once("../admin/head.php");
         </div>
     </header>
     <div class="schermo">
-    <h1 class="rt-heading">Quanto desideri prelevare?<?php echo$id;?></h1>
+    <h1 class="rt-heading">Quanto desideri prelevare?</h1>
     <style>
         .tableang {
             caption-side: bottom;

@@ -1,22 +1,34 @@
 <?php
-//ACQUISIZIONE ID E QUERY
+session_start();
 require_once("../../open_php.php");
-$var = $_GET["id"];
-$sql = "SELECT Nome FROM ATM WHERE  Id_ATM = $var";
+$a = $_SERVER['REQUEST_URI'];
+if (strpos($a, '1') !== false) {
+    $_SESSION["id"] = 1;
+    $_SESSION["nome"]="DSU";
+}
+if (strpos($a, '2') !== false) {
+    $_SESSION["id"] = 2;
+    $_SESSION["nome"]="Virtual Bank";
+}
+if (strpos($a, '3') !== false) {
+    $_SESSION["id"] = 3;
+    $_SESSION["nome"]="Super";
+}
+if (strpos($a, '4') !== false) {
+    $_SESSION["id"] = 4;
+    $_SESSION["nome"]="Udi";
+}
+if (strpos($a, '5') !== false) {
+    $_SESSION["id"] = 5;
+    $_SESSION["nome"]="Apulia";
+}
+if (strpos($a, '6') !== false) {
+    $_SESSION["id"] = 6;
+    $_SESSION["nome"]="Center";
+}
+$sql = "SELECT Nome FROM ATM WHERE Id_ATM =".$_SESSION["id"];
 $result = mysqli_query($conn, $sql);
 $prova = array();
-$queryquantita = "SELECT Banconote50 from ATM where Id_ATM =$var";
-$resultq = mysqli_query($conn, $queryquantita);
-$quantita = array();
-while ($row = mysqli_fetch_array($resultq)) {
-    array_push($quantita, $row["Banconote50"]);
-}
-$nome = "SELECT Bevande.Nome FROM Contenere, Distributori, Bevande WHERE Contenere.IdBevanda = Bevande.IdBevanda && Contenere.IdDistributore = Distributori.IdDistributore && distributori.IdDistributore = $var";
-$resultn = mysqli_query($conn, $nome);
-$bevande = array();
-while ($row = mysqli_fetch_array($resultn)) {
-    array_push($bevande, $row["Nome"]);
-}
 while ($row = mysqli_fetch_array($result)) {
     array_push($prova, $row["Nome"]);
 }
@@ -24,35 +36,17 @@ while ($row = mysqli_fetch_array($result)) {
 <!DOCTYPE html>
 <html lang="it">
 <?php
+
+
 // output data of each row
 require_once("head.php");
 ?>
-<style>
-    .sus {
-        color: #fff;
-        background: #0A2558;
-        border-color: #0A2558;
-        padding: 4px 12px;
-        font-size: 15px;
-        font-weight: 400;
-        border-radius: 4px;
-        text-decoration: none;
-        transition: all 0.3s ease;
-    }
-
-    .sus:hover {
-        background: #B15DFF;
-        border-color: #B15DFF;
-    }
-</style>
 
 <body>
     <div class="sidebar">
         <div class="logo-details">
-        <a href="database.php">
             <i class='bx bx-shield-quarter'></i>
-            <span class="logo_name" >Admin Page</span>
-        </a>    
+            <span class="logo_name">Admin Page</span>
         </div>
         <ul class="nav-links">
             <li>
@@ -77,79 +71,63 @@ require_once("head.php");
 
             </div>
         </nav>
+
         <div class="home-content">
             <div class="overview-boxes">
             </div>
+
+
             <div class="sales-boxes">
-                <div class="recent-sales box">
-                    <div class="title" style="text-align:center"><?php echo $prova[0]; ?>
+                <div class="recent-sales box" style="padding: 30px 600px;">
+                    <div class="title" style="text-align:center"><?php echo $_SESSION["nome"]; ?>
 
                     </div>
                     <div class="sales-details">
 
                         <ul class="details">
                             <?php
-                            //QUERY E STAMPA A VIDEO DELLE BEVANDE
-                            for ($i = 0; $i < 7; $i++) {
-                                echo "<li>" . $bevande[$i] . "</li>";
+                            $queryquantita50 = "SELECT Banconote50 from ATM where Id_ATM =".$_SESSION["id"];
+                            $queryquantita20 = "SELECT Banconote20 from ATM where Id_ATM =".$_SESSION["id"];
+                            $result20 = mysqli_query($conn, $queryquantita20);
+                            $result50 = mysqli_query($conn, $queryquantita50);
+                            $quantita50 = array();
+                            $quantita20 = array();
+                            while ($row = mysqli_fetch_array($result20)) {
+                                array_push($quantita20, $row["Banconote20"]);
                             }
+                            while ($row = mysqli_fetch_array($result50)) {
+                                array_push($quantita50, $row["Banconote50"]);
+                            }
+
                             ?>
                         </ul>
-                        <?php
-                        for ($i = 0; $i < 9; $i++) {
-                            echo "<ul></ul>";
-                        }
-                        ?>
                         <ul class="details">
-                            <!--qta-->
                             <?php
-                            function stampa($quantita)
+
+                            echo '<li>Banconote 20: ' . $quantita20[0] . '</li>';
+                            echo '<li>Banconote 50: ' . $quantita50[0] . '</li>';
+                            if($quantita20[0]==0 || $quantita50[0] == 0)
                             {
-                                for ($i = 0; $i < 7; $i++) {
-                                    echo '<li>' . $quantita[$i] . '</li>';
+                                echo'<form action = "" method="POST">';
+                                echo ' <li>' . '<input type ="submit" name ="massimo"' . '" value="MAX" class="sus"> ' . '</li></form>';
+                                if(isset($_POST["massimo"]))
+                                {
+                                    $sql="UPDATE atm SET Banconote50 =20, Banconote20 = 20 WHERE Id_ATM =".$_SESSION["id"];
+                                    $result=mysqli_query($conn,$sql);
+                                    header("refresh:0.1, url = edit_atm.php");
                                 }
                             }
-                            stampa($quantita);
+                            else
+                            {
+                                echo ' <li>' . '<input type ="submit" name ="massimo"' . '" value="FULL" class="sus" disabled> ' . '</li>';
+                            }
                             ?>
-                            <form action="edit-distributore.php?id=<?php echo $var; ?>" method="post">
-                            <?php 
-                                $max = True;
-                                $idquantita = "SELECT Quantita FROM contenere WHERE IdDistributore=$var";
-                                $resultquant= mysqli_query($conn, $idquantita);
-                                while ($row = mysqli_fetch_array($resultquant)) {
-                                    if ($row["Quantita"]!=20) {
-                                        $max = False;
-                                    }
-                                }
-                                if (!$max) {
-                                    echo ' <li>' . '<input type ="submit" name ="massimo"' . '" value="MAX" class="sus"> ' . '</li>';
-                                }
-                                else {
-                                    echo ' <li>' . '<input type ="submit" name ="massimo"' . '" value="FULL" class="sus" disabled> ' . '</li>';
-                                }
-                            ?>
-                            </form>
                         </ul>
-                        <ul>
-                        </ul>
-                        <?php
-                        $idlattina = "SELECT IdBevanda FROM contenere WHERE IdDistributore=$var";
-                        $resultid = mysqli_query($conn, $idlattina);
-                        $id = array();
-                        while ($row = mysqli_fetch_array($resultid)) {
-                            array_push($id, $row["IdBevanda"]);
-                        }
-                        
-                        
-                        
-                        //QUERY MASSIMO
-                        if (isset($_POST["massimo"])) {
-                            $incremento = "UPDATE gestiredistributori.contenere SET Quantita =20 WHERE contenere.IdDistributore=$var";
-                            $resultinc = mysqli_query($conn, $incremento);
-                        }
-                        ?>
+                        <form>
+
                     </div>
     </section>
+
     <script>
         let sidebar = document.querySelector(".sidebar");
         let sidebarBtn = document.querySelector(".sidebarBtn");

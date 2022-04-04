@@ -128,7 +128,7 @@ require_once("head.php");
                 <table>
                     for(){
                         qui stampo le singole righe con i singoli campi. come ultimo campo devo avere un link dinamico
-                        <a href="edit-distributore.php?id=" $item->id ">Modifica</a>
+                        <a href="edit_atm.php?id=" $item->id ">Modifica</a>
                     }
                 </table>
                 */
@@ -232,7 +232,7 @@ require_once("head.php");
                         <ul class="details">
                             <center>
                                 <li class="topic">Modifica</li>
-                                <li><a href="edit-distributore.php?id=<?php echo $idhref[0]; ?>"><svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="20" height="20" viewBox="0 0 172 172" style=" fill:#000000;">
+                                <li><a href="edit_atm.php?id=<?php echo $idhref[0]; ?>"><svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="20" height="20" viewBox="0 0 172 172" style=" fill:#000000;">
                                             <g fill="none" fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0" font-family="none" font-weight="none" font-size="none" text-anchor="none" style="mix-blend-mode: normal">
                                                 <path d="M0,172v-172h172v172z" fill="none"></path>
                                                 <g fill="red">
@@ -240,7 +240,7 @@ require_once("head.php");
                                                 </g>
                                             </g>
                                         </svg></a></li>
-                                <li><a href="edit-distributore.php?id=<?php echo $idhref[1]; ?>"><svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="20" height="20" viewBox="0 0 172 172" style=" fill:#000000;">
+                                <li><a href="edit_atm.php?id=<?php echo $idhref[1]; ?>"><svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="20" height="20" viewBox="0 0 172 172" style=" fill:#000000;">
                                             <g fill="none" fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0" font-family="none" font-weight="none" font-size="none" text-anchor="none" style="mix-blend-mode: normal">
                                                 <path d="M0,172v-172h172v172z" fill="none"></path>
                                                 <g fill="red">
@@ -248,7 +248,7 @@ require_once("head.php");
                                                 </g>
                                             </g>
                                         </svg></a></li>
-                                <li><a href="edit-distributore.php?id=<?php echo $idhref[2]; ?>"><svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="20" height="20" viewBox="0 0 172 172" style=" fill:#000000;">
+                                <li><a href="edit_atm.php?id=<?php echo $idhref[2]; ?>"><svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="20" height="20" viewBox="0 0 172 172" style=" fill:#000000;">
                                             <g fill="none" fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0" font-family="none" font-weight="none" font-size="none" text-anchor="none" style="mix-blend-mode: normal">
                                                 <path d="M0,172v-172h172v172z" fill="none"></path>
                                                 <g fill="red">
@@ -256,7 +256,7 @@ require_once("head.php");
                                                 </g>
                                             </g>
                                         </svg></a></li>
-                                <li><a href="edit-distributore.php?id=<?php echo $idhref[3]; ?>"><svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="20" height="20" viewBox="0 0 172 172" style=" fill:#000000;">
+                                <li><a href="edit_atm.php?id=<?php echo $idhref[3]; ?>"><svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="20" height="20" viewBox="0 0 172 172" style=" fill:#000000;">
                                             <g fill="none" fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0" font-family="none" font-weight="none" font-size="none" text-anchor="none" style="mix-blend-mode: normal">
                                                 <path d="M0,172v-172h172v172z" fill="none"></path>
                                                 <g fill="red">
@@ -264,7 +264,7 @@ require_once("head.php");
                                                 </g>
                                             </g>
                                         </svg></a></li>
-                                <li><a href="edit-distributore.php?id=<?php echo $idhref[4]; ?>"><svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="20" height="20" viewBox="0 0 172 172" style=" fill:#000000;">
+                                <li><a href="edit_atm.php?id=<?php echo $idhref[4]; ?>"><svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="20" height="20" viewBox="0 0 172 172" style=" fill:#000000;">
                                             <g fill="none" fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0" font-family="none" font-weight="none" font-size="none" text-anchor="none" style="mix-blend-mode: normal">
                                                 <path d="M0,172v-172h172v172z" fill="none"></path>
                                                 <g fill="red">
@@ -272,7 +272,7 @@ require_once("head.php");
                                                 </g>
                                             </g>
                                         </svg></a></li>
-                                <li><a href="edit-distributore.php?id=<?php echo $idhref[5]; ?>"><svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="20" height="20" viewBox="0 0 172 172" style=" fill:#000000;">
+                                <li><a href="edit_atm.php?id=<?php echo $idhref[5]; ?>"><svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="20" height="20" viewBox="0 0 172 172" style=" fill:#000000;">
                                             <g fill="none" fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0" font-family="none" font-weight="none" font-size="none" text-anchor="none" style="mix-blend-mode: normal">
                                                 <path d="M0,172v-172h172v172z" fill="none"></path>
                                                 <g fill="red">
